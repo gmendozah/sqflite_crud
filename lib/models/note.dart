@@ -1,25 +1,19 @@
 class Note {
-  int id;
+  int? id;
   String name;
   String date;
   String notes;
   int position;
 
-  Note({
-    required this.id,
-    required this.name,
-    required this.date,
-    required this.notes,
-    required this.position,
-  });
+  Note(
+    this.name,
+    this.date,
+    this.notes,
+    this.position,
+  );
 
   factory Note.fromMap(Map<String, dynamic> map) {
-    return Note(
-        id: map['id'],
-        name: map['name'],
-        date: map['date'],
-        notes: map['notes'],
-        position: map['position']);
+    return Note(map['name'], map['date'], map['notes'], map['position']);
   }
 
   Map<String, dynamic> toMap() {
