@@ -1,9 +1,9 @@
 class Note {
-  int? id;
-  String name;
-  String date;
-  String notes;
-  int position;
+  late int? id;
+  late String name;
+  late String date;
+  late String notes;
+  late int position;
 
   Note(
     this.name,
@@ -12,8 +12,12 @@ class Note {
     this.position,
   );
 
-  factory Note.fromMap(Map<String, dynamic> map) {
-    return Note(map['name'], map['date'], map['notes'], map['position']);
+  Note.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    name = map['name'];
+    date = map['date'];
+    notes = map['notes'];
+    position = map['position'];
   }
 
   Map<String, dynamic> toMap() {

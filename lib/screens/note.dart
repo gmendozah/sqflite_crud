@@ -52,12 +52,14 @@ class _NoteScreenState extends State<NoteScreen> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.save),
           backgroundColor: Color(settingColor),
-          onPressed: () {
+          onPressed: () async {
             //save Note
             widget.note.name = txtName.text;
             widget.note.notes = txtNotes.text;
             widget.note.date = txtDate.text;
             widget.note.position = 0;
+            final notes = await helper.getNotes();
+            widget.note.id = notes.length + 1;
             if (widget.isNew) {
               helper.insertNote(widget.note);
             } else {

@@ -47,6 +47,7 @@ class SqlHelper {
   }
 
   Future<int> insertNote(Note note) async {
+    print(note.id);
     int result = await _db!.insert(tableNotes, note.toMap());
     return result;
   }
